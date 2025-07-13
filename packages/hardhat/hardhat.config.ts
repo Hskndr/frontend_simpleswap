@@ -40,6 +40,7 @@ const config: HardhatUserConfig = {
     ],
   },
   defaultNetwork: "localhost",
+
   namedAccounts: {
     deployer: {
       // By default, it will take the first Hardhat account as the deployer
@@ -60,8 +61,8 @@ const config: HardhatUserConfig = {
       accounts: [deployerPrivateKey],
     },
     sepolia: {
-      url: `https://eth-sepolia.g.alchemy.com/v2/${providerApiKey}`,
-      accounts: [deployerPrivateKey],
+      url: process.env.SEPOLIA_RPC,
+      accounts: [`0x${process.env.PRIVATE_KEY}`],
     },
     arbitrum: {
       url: `https://arb-mainnet.g.alchemy.com/v2/${providerApiKey}`,
